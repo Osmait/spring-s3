@@ -8,6 +8,8 @@ import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.TestPropertySources;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
@@ -17,21 +19,15 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@TestPropertySources({
+        @TestPropertySource(locations = "classpath:application-test.properties")
+})
 class S3ControllerTest {
 
 
     @Autowired
     private MockMvc mockMvc;
 
-    @DynamicPropertySource
-    static void setProperties(DynamicPropertyRegistry dymDynamicPropertyRegistry) {
-        dymDynamicPropertyRegistry.add("config.aws.s3.url", () -> "http://127.0.0.1:4566");
-        dymDynamicPropertyRegistry.add("config.aws.bucket-name", () -> "saul-burgos-s3-bucket");
-        dymDynamicPropertyRegistry.add("aws.s3.access-key", () -> "localstack");
-        dymDynamicPropertyRegistry.add("aws.s3.secret-key", () -> "localstack");
-
-
-    }
 
     @Test
     void upload() throws Exception {
