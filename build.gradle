@@ -1,14 +1,21 @@
 plugins {
     id 'java'
+    id "org.sonarqube" version "4.4.1.3373"
     id 'org.springframework.boot' version '3.2.4'
     id 'io.spring.dependency-management' version '1.1.4'
-
 }
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
 apply from: "$projectDir/gradle/preCommit.gradle"
 
+sonarqube {
+    properties {
+        property "sonar.host.url", "http://localhost:9000" // Cambia la URL si SonarQube está en otro lugar
+
+
+    }
+}
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17

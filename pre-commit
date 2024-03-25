@@ -2,6 +2,12 @@
 
 echo "Running git pre-commit hook"
 
+./gradlew sonar \
+        -Dsonar.projectKey=demoS3 \
+        -Dsonar.projectName='demoS3' \
+        -Dsonar.host.url=http://localhost:9000 \
+        -Dsonar.token=sqp_4d8e48ecec356456e86728447c14ad3233049199
+
 ./gradlew clean build
 
 RESULT=$?
