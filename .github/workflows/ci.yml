@@ -25,7 +25,7 @@ jobs:
           --rm -it \
           -p 4566:4566 \
           -p 4510-4559:4510-4559 \
-          -e LOCALSTACK_AUTH_TOKEN=${{LOCALSTACK_AUTH_TOKEN}} \
+          -e LOCALSTACK_AUTH_TOKEN=${{ secret.LOCALSTACK_AUTH_TOKEN }} \
           localstack/localstack-pro
 
       - name: Terraform Config
