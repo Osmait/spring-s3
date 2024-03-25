@@ -1,3 +1,3 @@
-tflocal init
-tflocal plan
-tflocal apply --auto-approve
+terraform init
+terraform plan
+terraform apply --auto-approve
