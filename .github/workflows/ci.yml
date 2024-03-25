@@ -18,20 +18,22 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '17'
-      - name: cd to terraform directory
-        run: cd terraform
 
-      - name: run terraform init
-        run: terraform init
+      - name: Start LocalStack
+        run: |
+          docker run \
+          --rm -it \
+          -p 4566:4566 \
+          -p 4510-4559:4510-4559 \
+          -e LOCALSTACK_AUTH_TOKEN=${{LOCALSTACK_AUTH_TOKEN}} \
+          localstack/localstack-pro
 
-      - name: run terraform plan
-        run: terraform plan
+      - name: Terraform Config
+        run: |
+          cd terraform
+          bash run-tflocal.sh
 
-      - name: run terraform apply
-        run: terraform apply -auto-approve
 
-      - name: cd to root directory
-        run: cd ..
 
       - name: Run tests
         run: ./gradlew test
