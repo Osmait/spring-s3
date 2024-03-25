@@ -4,12 +4,14 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.4'
 
 }
-apply from: "$projectDir/gradle/preCommit.gradle"
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 
+apply from: "$projectDir/gradle/preCommit.gradle"
+
 java {
-    sourceCompatibility = '21'
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 configurations {
@@ -22,12 +24,15 @@ repositories {
     mavenCentral()
 }
 
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.1003'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation('org.mockito:mockito-core:4.5.0')
+    testImplementation("net.bytebuddy:byte-buddy:1.12.9")
 }
 
 tasks.named('test') {

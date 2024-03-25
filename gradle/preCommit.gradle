@@ -1,4 +1,4 @@
-task installGitHook(type: Copy) {
+tasks.register('installGitHook', Copy) {
     from new File(projectDir, 'pre-commit')
     into { new File(projectDir, '.git/hooks') }
     fileMode 0777
