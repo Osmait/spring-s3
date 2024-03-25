@@ -31,8 +31,8 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     implementation group: 'com.amazonaws', name: 'aws-java-sdk', version: '1.11.1003'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation('org.mockito:mockito-core:4.5.0')
-    testImplementation("net.bytebuddy:byte-buddy:1.12.9")
+    testImplementation 'org.mockito:mockito-core:4.5.0'
+    testImplementation "net.bytebuddy:byte-buddy:1.12.9"
 }
 
 tasks.named('test') {
