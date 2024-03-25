@@ -1,0 +1,21 @@
+{
+  "id": "1fbb0ee4-15fa-49d8-8691-ebbe5ca34ad2",
+  "license_format": "1",
+  "signature": "38eee2cd4a8e57f53ea00e99d39ca99a26e83199c64c1d903ab4bccffad9f404",
+  "license_type": "team",
+  "issue_date": "2024-03-25T12:30:41+00:00",
+  "expiry_date": "2025-03-22T14:42:11+00:00",
+  "products": [
+    {
+      "name": "localstack-pro",
+      "version": "*.*.*"
+    }
+  ],
+  "license_status": "ACTIVE",
+  "license_secret": "TFMxLjA6Kdw7xExAJ5K3UGNY5kVPM4IJfqCnhjUyxM8cZMq4Xz9ZIbPhEGBAIN0S2Mp+M6Lp",
+  "last_activated": "2024-03-25T18:17:50.023525Z",
+  "reactivate_after": "2024-03-26T18:17:50+00:00",
+  "offline_data": {
+    "localstack_version": "3.2.1.dev20240325102701"
+  }
+}
