@@ -21,6 +21,8 @@ jobs:
 
       - name: Start LocalStack
         run: docker-compose up -d
+        env:
+          LOCALSTACK_AUTH_TOKEN: ${{ secrets.LOCALSTACK_AUTH_TOKEN }}
 
       - name: Terraform Config
         run: |
